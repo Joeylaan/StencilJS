@@ -15,7 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-//      "@org/stencil-js": ["libs/stencil-js/src/index.ts"]
+      "@org/angular-lib": ["libs/angular-lib/src/index.ts"],
+      "@org/react-lib": ["libs/react-lib/src/index.ts"],
+      "@org/stencil-js/*": ["dist/libs/stencil-js/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

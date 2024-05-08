@@ -7,6 +7,10 @@
   "tags": [],
   "targets": {
     "build": {
+      "dependsOn": [
+        "^build",
+        { "projects": ["stencil-js"], "target": "build" }
+      ],
       "executor": "@angular-devkit/build-angular:browser",
       "outputs": ["{options.outputPath}"],
       "options": {
@@ -51,6 +55,9 @@
       "defaultConfiguration": "production"
     },
     "serve": {
+      "dependsOn": [
+        { "projects": ["stencil-js"], "target": "build" }
+      ],
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {

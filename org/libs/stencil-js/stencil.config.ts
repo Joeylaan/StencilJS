@@ -1,6 +1,7 @@
 import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
 import {angularOutputTarget, ValueAccessorConfig} from "@stencil/angular-output-target";
+import {reactOutputTarget} from '@stencil/react-output-target';
 
 const angularValueAccessorBindings: ValueAccessorConfig[] = [];
 const excludeComponents = [];
@@ -19,7 +20,6 @@ export const config: Config = {
       type: 'dist',
       dir: '../../dist/libs/stencil-js/dist',
       esmLoaderPath: '../loader',
-      copy: [ { src: 'services' } ]
     },
     {
       type: 'dist-custom-elements',
@@ -28,8 +28,13 @@ export const config: Config = {
     },
     {
       type: 'dist-custom-elements',
-      dir: '../../dist/libs/stencil-js/dist-custom-elements',
+      dir: '../../dist/libs/stencil-js/dist-custom-elements-single-export',
       customElementsExportBehavior: 'single-export-module'
+    },
+    {
+      type: 'dist-custom-elements',
+      dir: '../../dist/libs/stencil-js/dist-custom-elements-bundle',
+      customElementsExportBehavior: 'bundle'
     },
     {
       type: 'www',
@@ -38,7 +43,7 @@ export const config: Config = {
       dir: '../../dist/libs/stencil-js/www'
     },
     angularOutputTarget({
-      componentCorePackage: 'stencil-js',
+      componentCorePackage: '@org/stencil-js',
       customElementsDir: 'dist-custom-elements',
       outputType: 'standalone',
       directivesProxyFile:
@@ -47,7 +52,14 @@ export const config: Config = {
         '../angular-lib/src/generated/directives/index.ts',
       valueAccessorConfigs: angularValueAccessorBindings,
       excludeComponents: excludeComponents
-    })
+    }),
+    reactOutputTarget({
+      componentCorePackage: '@org/stencil-js',
+      proxiesFile: '../react-lib/src/components/stencil-generated/index.ts',
+      customElementsDir: 'dist-custom-elements-bundle',
+      loaderDir: '@org/stencil-js/dist-custom-elements-bundle',
+      includeImportCustomElements: true
+    }),
   ],
   testing: {
     browserHeadless: "new",

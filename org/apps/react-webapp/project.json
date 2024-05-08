@@ -1,0 +1,28 @@
+{
+  "name": "react-webapp",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/react-webapp/src",
+  "projectType": "application",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project react-webapp --web",
+  "targets": {
+    "build": {
+      "inputs": ["production", "^production"],
+      "executor": "nx:run-commands",
+      "outputs": ["{workspaceRoot}/dist/app/react-webapp"],
+      "options": {
+        "command": "vite build"
+      }
+    },
+    "serve": {
+      "dependsOn": [
+        { "projects": ["stencil-js"], "target": "build" }
+      ],
+      "executor": "nx:run-commands",
+      "outputs": ["{workspaceRoot}/dist/app/react-webapp"],
+      "options": {
+        "command": "vite serve"
+      }
+    }
+  }
+}
