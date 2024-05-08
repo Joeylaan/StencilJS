@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "allowUnreachableCode": false,
+    "declaration": false,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "jsx": "react",
+    "jsxFactory": "h",
+    "types": ["node", "jest"]
+  },
+  "include": ["src"]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "stencil-js",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/stencil-js/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "inputs": ["production", "^production"],
+      "executor": "nx:run-script",
+      "outputs": ["{workspaceRoot}/dist/libs/stencil-js"],
+      "options": {
+        "script": "build"
+      }
+    },
+    "serve": {
+      "executor": "nx:run-script",
+      "outputs": ["{workspaceRoot}/dist/libs/stencil-js"],
+      "options": {
+        "script": "serve"
+      }
+    }
+  }
+}

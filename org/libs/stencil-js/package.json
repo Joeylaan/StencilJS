@@ -1,0 +1,22 @@
+{
+  "name": "stenciljs",
+  "version": "0.0.1",
+  "description": "Stencil Component Starter",
+  "main": "dist/libs/stencil-js/index.cjs.js",
+  "module": "dist/libs/stencil-js/index.js",
+  "types": "dist/libs/stencil-js/types/index.d.ts",
+  "collection": "dist/libs/stencil-js/collection/collection-manifest.json",
+  "collection:main": "dist/libs/stencil-js/collection/index.js",
+  "unpkg": "dist/libs/stencil-js/stenciljs/stenciljs.esm.js",
+  "files": [
+    "../../dist/libs/stencil-js/dist/",
+    "../../dist/libs/stencil-js/loader/"
+  ],
+  "scripts": {
+    "build": "stencil build",
+    "serve": "stencil build --dev --watch --serve",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "generate": "stencil generate"
+  }
+}
