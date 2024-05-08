@@ -10,6 +10,8 @@ Enhance your Nx experience by installing [Nx Console](https://nx.dev/nx-console)
 provides an interactive UI to view your projects, run tasks, generate code, and more! Available for VSCode, IntelliJ and
 comes with a LSP for Vim users.
 
+When NX tells you that NX is not installed locally, change in IDE settings the root of the project to `StenilJS/org`.
+
 ## Start the application
 
 Run `npx nx serve org` to start the development server. Happy coding!
