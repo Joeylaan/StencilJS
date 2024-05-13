@@ -44,14 +44,14 @@ export const config: Config = {
     },
     angularOutputTarget({
       componentCorePackage: '@org/stencil-js',
-      customElementsDir: 'dist-custom-elements',
+      customElementsDir: 'dist-custom-elements-single-export',
       outputType: 'standalone',
       directivesProxyFile:
         '../angular-lib/src/generated/directives/proxies.ts',
       directivesArrayFile:
         '../angular-lib/src/generated/directives/index.ts',
       valueAccessorConfigs: angularValueAccessorBindings,
-      excludeComponents: excludeComponents
+      excludeComponents: excludeComponents,
     }),
     reactOutputTarget({
       componentCorePackage: '@org/stencil-js',
